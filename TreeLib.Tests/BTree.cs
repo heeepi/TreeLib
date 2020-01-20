@@ -4,25 +4,19 @@ using NUnit.Framework;
 namespace TreeLib.Tests
 {
     [TestFixture]
-    public class GivenBTree
+    public class BTreeTest
     {
-        private static int[] data = new int[] { 1, 2, 3, 4, 5, 6 };
-        private static BTree<int> tree;
-        
-        public class WhenBuildTreeFromData
+        [Test]
+        public void CreateBTReeFromArray()
         {
-            [SetUp]
-            public void Setup()
+            var tree = new BTree<int, string>(3);
+
+            for (int i = 0; i < 100; i++)
             {
-                tree = new BTree<int>();
-                tree.Import(data);
+                tree[i] = i.ToString();
             }
 
-            [Test]
-            public void ThenTreeStateMustBeCorrect()
-            {
-                Console.WriteLine(tree.ToString());
-            }
         }
+
     }
 }
